@@ -1,0 +1,33 @@
+{
+  "name": "express-react-cli",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^3.4.4",
+    "axios": "^0.18.0",
+    "babel-plugin-import": "^1.7.0",
+    "concurrently": "^3.5.1",
+    "history": "^4.7.2",
+    "react": "^16.3.2",
+    "react-app-rewire-less": "^2.1.1",
+    "react-app-rewired": "^1.5.2",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "sweetalert": "^2.1.0",
+    "uxcore-empty-data": "^0.1.5"
+  },
+  "scripts": {
+    "react-start": "react-app-rewired start",
+    "react-build": "react-app-rewired build",
+    "start": "concurrently \"react-app-rewired start\" \"cd server && yarn start\"",
+    "build": "concurrently \"react-app-rewired build\" \"cd server && yarn build\"",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "proxy": "http://127.0.0.1:3003"
+}

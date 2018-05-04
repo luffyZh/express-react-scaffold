@@ -1,0 +1,63 @@
+#scene-defaultpage-demo-basic {
+  position:relative;
+  height:500px;
+}
+.fillErrorDemo {
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:684px;
+    height:220px;
+}
+.fillErrorDemo .errorLeft {
+  float:left;
+  width:220px;
+  height:220px;
+}
+.fillErrorDemo .errorLeft .kuma-empty-data-icon{
+  height:220px;
+  width:220px;
+}
+.fillErrorDemo .errorLeft .kuma-empty-data-content{
+  display:none;
+}
+.fillErrorDemo .errorRight {
+  float:right;
+  display:table;
+  width:400px;
+  height:100%;
+
+}
+.fillErrorDemo .errorRight .tips{
+  display:table-cell;
+  vertical-align:middle;
+  margin-right:64px;
+  width:400px;
+}
+.fillErrorDemo .errorRight .tipsTitle {
+  margin-bottom:28px;
+  line-height:32px;
+  font-size:32px;
+  color:rgba(31,56,88,1);
+  letter-spacing:0;
+}
+.fillErrorDemo .errorRight .errorRips{
+  line-height:22px;
+  font-size:14px;
+  letter-spacing:0;
+  color: rgba(-2147483648,26,-2147483648,0.60);
+}
+.fillErrorDemo .errorRight .errorButtons{
+  margin-top:28px;
+}
+.fillErrorDemo .errorButtons button{
+  margin-right:12px;
+}
+.kuma-button span {
+  display:inline-block;
+  line-height:12px;
+}
+.kuma-empty-data-icon {
+  background-size: cover;
+}
