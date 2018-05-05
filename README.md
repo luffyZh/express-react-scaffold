@@ -9,7 +9,8 @@
 ```
 1. git clone https://github.com/luffyZh/express-react-scaffold.git
 2. cd express-react-scaffold
-3. yarn install
-4. cd server && yarn install
+3. yarn install // 安装前端依赖
+4. cd server && yarn install // 安装后端依赖
 5. yarn start // 在express-react-scaffold目录下
 ```
+> 使用之前请安装MongoDB并且在/server/config里面配置好你的数据库连接
