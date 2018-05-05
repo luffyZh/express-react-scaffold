@@ -1,7 +1,7 @@
-var express = require('express');
-var User = require('../db/models/UserModel');// 引入模型
+const express = require('express');
+const User = require('../db/models/UserModel');// 引入模型
 
-var router = express.Router();
+const router = express.Router();
 
 router.get('/list', (req, res) => {
   User.find({}, (err, data) => {
@@ -27,7 +27,7 @@ router.post('/login', (req, res) => {
                 res.json({ successMsg: 'login success'});
             }
         }
-    })
+    });
 
 });
 

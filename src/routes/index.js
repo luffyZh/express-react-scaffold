@@ -26,7 +26,7 @@ class RootRouter extends React.Component {
           </Switch>
         </Router>
       </Provider>
-    )
+    );
   }
 }
 

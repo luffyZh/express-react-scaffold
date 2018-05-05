@@ -10,4 +10,4 @@ module.exports = ()=>{
         console.log('MongoDB连接成功！！');
     });
     return db;
-}
+};
