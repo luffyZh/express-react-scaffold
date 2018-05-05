@@ -41,5 +41,6 @@
 4. cd server && yarn install // 安装后端依赖
 5. yarn start // 在express-react-scaffold目录下
 ```
-> 使用之前请安装MongoDB并且在/server/config里面配置好你的数据库连接
+> 使用之前请安装MongoDB并且在/server/config里面配置好你的数据库连接  
+
 **更多细节，请访问如下链接查看：https://juejin.im/post/5ae3317e6fb9a07ac021fba4**
