@@ -8,7 +8,8 @@ import {
   RESET_REGISTER_STATUS,
   RESET_LOGIN_STATUS,
 } from '../../constants/ActionTypes';
-import axios from 'axios';
+// import axios from 'axios';
+import http from '../../api/http';
 
 // 用户注册
 const userRegister = () => ({
@@ -26,7 +27,7 @@ export const resetRegisterStatus = () => ({
 });
 export const postUserRegister = (postData) => (dispatch, getState) => {
   dispatch(userRegister());
-  return axios.post('/api/user/register', postData)
+  return http.post('/user/register', postData)
           .then(res => {
             return dispatch(userRegisterSuccess(res.data));
           })
@@ -51,7 +52,7 @@ export const resetLoginStatus = () => ({
 });
 export const postUserLogin = (postData) => (dispatch, getState) => {
   dispatch(userLogin());
-  return axios.post('/api/user/login', postData)
+  return http.post('/user/login', postData)
           .then(res => {
             return dispatch(userLoginSuccess(res.data));
           })

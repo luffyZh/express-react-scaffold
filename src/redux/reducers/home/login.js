@@ -20,13 +20,13 @@ const login = (state = initialState, { type, payload }) => {
     case USER_LOGIN_SUCCESS:
       return {
         ...state,
-        loginMsg: payload.msg,
+        loginMsg: payload.message,
         status: OperationStatus.load_success,
       };
     case USER_LOGIN_FAIL:
       return {
         ...state,
-        loginMsg: payload.msg,
+        loginMsg: payload.message,
         status: OperationStatus.load_fail,
       };
     case RESET_LOGIN_STATUS: 

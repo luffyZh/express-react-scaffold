@@ -1,6 +1,7 @@
 const express = require('express');
+const jwt = require("jsonwebtoken");
 const User = require('../db/models/UserModel');// 引入模型
-const { MD5_SUFFIX, md5 } = require('../constant/constant');
+const { MD5_SUFFIX, md5, secretKey } = require('../constant/constant');
 
 const router = express.Router();
 
@@ -15,6 +16,9 @@ router.get('/list', (req, res) => {
 
 // 用户登录接口
 router.post('/login', (req, res) => {
+    const tokenObj = {
+        username: req.body.username,
+    };
     User.findOne({
         username: req.body.username,
     }, (err, user) => {
@@ -26,9 +30,17 @@ router.post('/login', (req, res) => {
                 password: md5(req.body.password + MD5_SUFFIX),
             },(err, user) => {
                 if (user !== null) {
-                    res.json({ msg: 'success' });
+                    // 用户登录成功过后生成token返给前端
+                  let token = jwt.sign(tokenObj, secretKey, {
+                        expiresIn : 60 * 60 * 24 // 授权时效24小时
+                  });
+                  res.json({
+                        success: true,
+                        message: 'success',
+                        token: token
+                  });
                 } else {
-                    res.json({ msg: 'fail'});
+                    res.json({ success: false, message: 'fail'});
                 }
             });
         }
@@ -37,6 +49,7 @@ router.post('/login', (req, res) => {
 
 // 用户注册接口
 router.post('/register', (req, res) => {
+    console.log(req.body);
     User.findOne({ //查找是否存在
       username: req.body.username,
     },(err, user)=>{
