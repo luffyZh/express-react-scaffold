@@ -33,6 +33,10 @@
 ### 前端
 使用react全家桶，react+react-router+react-redux
 
+### Version
+ - 新增CSS Module，依赖的是[react-app-rewire-css-modules](https://github.com/codebandits/react-app-rewire-css-modules)
+ > 使用CSS Module需要注意，.css文件的命名规则需要是*.module.css，这样才会被解析成css module,否则只会当成普通的css文件。详情见上方链接
+
 ### 使用
 ```
 1. git clone https://github.com/luffyZh/express-react-scaffold.git

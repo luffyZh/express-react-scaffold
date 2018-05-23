@@ -1,0 +1,39 @@
+import {
+  USER_LOGIN,
+  USER_LOGIN_SUCCESS,
+  USER_LOGIN_FAIL,
+  RESET_LOGIN_STATUS,
+} from '../../../constants/ActionTypes';
+import { OperationStatus } from '../../../constants/OperationStatus';
+
+const initialState = {
+  loginMsg: '',
+};
+
+const login = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case USER_LOGIN:
+      return {
+        ...state,
+        status: OperationStatus.initial
+      };
+    case USER_LOGIN_SUCCESS:
+      return {
+        ...state,
+        loginMsg: payload.msg,
+        status: OperationStatus.load_success,
+      };
+    case USER_LOGIN_FAIL:
+      return {
+        ...state,
+        loginMsg: payload.msg,
+        status: OperationStatus.load_fail,
+      };
+    case RESET_LOGIN_STATUS: 
+     return initialState;
+    default:
+      return state;
+  }
+};
+
+export default login;
