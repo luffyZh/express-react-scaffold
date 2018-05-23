@@ -37,6 +37,7 @@ router.post('/login', (req, res) => {
 
 // 用户注册接口
 router.post('/register', (req, res) => {
+    console.log(req.body);
     User.findOne({ //查找是否存在
       username: req.body.username,
     },(err, user)=>{
