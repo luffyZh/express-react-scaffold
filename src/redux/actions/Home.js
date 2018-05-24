@@ -26,7 +26,6 @@ export const resetRegisterStatus = () => ({
   type: RESET_REGISTER_STATUS
 });
 export const postUserRegister = (postData) => (dispatch, getState) => {
-  console.log(postData);
   dispatch(userRegister());
   return http.post('/user/register', postData)
           .then(res => {

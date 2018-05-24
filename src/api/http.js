@@ -8,16 +8,23 @@ const history = createBrowserHistory();
 
 // 拦截请求
 axios.interceptors.request.use(request => {
-  // const method = request.method.toUpperCase();
   const luffy_jwt_token = window.localStorage.getItem('luffy_jwt_token');
   if (luffy_jwt_token) {
-    request.headers.Authorazition = luffy_jwt_token;
+    /*
+      此处有坑，在此记录
+      request.headers['Authorization']
+      必须通过此种形式设置Authorization,否则后端即使收到字段也会出现问题，返回401
+      - request.headers.Authorization或request.headers.authorization可以设置成功，
+      浏览器查看也没有任何问题，但是在后端会报401并且后端一律只能拿到小写的，
+      也就是res.headers.authorization，后端用大写获取会报undefined
+    */
+    request.headers['Authorization'] =`Bearer ${luffy_jwt_token}`;
   } else {
     const noAuthArr = ['/user/login', '/user/register'];
     if (noAuthArr.indexOf(request.url) > -1) {
       console.log('无需验证auth');
     } else {
-      swal('No Auth!', '登录已超时，请重新登陆。', 'error')
+      swal('Auth Error!', '用户未登录', 'error')
       .then(() => {
         history.push('/login');
         setTimeout(() => {
@@ -32,15 +39,6 @@ axios.interceptors.request.use(request => {
 // 拦截相应
 axios.interceptors.response.use(
   response => {
-    if (response.status === 401) {
-      swal('No Auth!', '登录已超时，请重新登陆。', 'error')
-      .then(() => {
-        history.push('/login');
-        setTimeout(() => {
-          window.location.reload();
-        }, 0);
-      });
-    }
     if (response.data.token) {
       console.log('token:', response.data.token);
       window.localStorage.setItem('luffy_jwt_token', response.data.token);
@@ -48,6 +46,17 @@ axios.interceptors.response.use(
     return response;
   },
   error => {
+    const errRes = error.response;
+    if (errRes.status === 401) {
+      window.localStorage.removeItem('luffy_jwt_token');
+      swal('Auth Error!', `${errRes.data.error.message}, please login again!`, 'error')
+      .then(() => {
+        history.push('/login');
+        setTimeout(() => {
+          window.location.reload();
+        }, 0);
+      });
+    }
     return Promise.reject(error.message);   // 返回接口返回的错误信息
   });
 
