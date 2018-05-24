@@ -31,7 +31,7 @@ class NormalLoginForm extends Component {
     }
     if (nextProps.loginMsg === 'success') {
       setTimeout(() => {
-        this.props.history.push('/');
+        this.props.history.push('/home');
       }, 1000);
     }
   }

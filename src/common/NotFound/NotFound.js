@@ -9,7 +9,7 @@ class NotFound extends React.Component {
     this.onMainClick = this.onMainClick.bind(this);
   }
   onMainClick(e) {
-    this.props.history.push('/');
+    this.props.history.push('/home');
   }
   render() {
     return (
