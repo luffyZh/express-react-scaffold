@@ -49,7 +49,7 @@ axios.interceptors.response.use(
     const errRes = error.response;
     if (errRes.status === 401) {
       window.localStorage.removeItem('luffy_jwt_token');
-      swal('Auth Error!', `${errRes.data.error.message}, please login again!`, 'error')
+      swal('Auth Error!', `${errRes.data.error.message}, please login!`, 'error')
       .then(() => {
         history.push('/login');
         setTimeout(() => {
