@@ -2,7 +2,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: #eeeee0;
+  background: url('./cool-background.png');
+  background-size: cover;
 }
 .cardStyle {
   width: 40%;
