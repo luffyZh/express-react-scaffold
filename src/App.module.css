@@ -12,3 +12,15 @@
 .AppTitle {
   font-size: 1.5em;
 }
+
+.buttonStyle {
+  margin: 10px 20px;
+}
+
+.contentContainer {
+  margin: 16px;
+  padding: 10px;
+  height: auto;
+  min-height: 400px;
+  background: #fff;
+}

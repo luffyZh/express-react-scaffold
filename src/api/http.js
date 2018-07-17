@@ -2,7 +2,8 @@ import { createBrowserHistory } from 'history';
 import axios from 'axios';
 import swal from 'sweetalert';
 
-axios.defaults.baseURL = '/api';
+axios.defaults.baseURL = '/api'; // 设置基础url为 /api
+axios.defaults.timeout = 5000; // 设置超时时间为5s
 
 const history = createBrowserHistory();
 
@@ -43,6 +44,8 @@ axios.interceptors.response.use(
           window.location.reload();
         }, 0);
       });
+    } else {
+      swal('Error', `${error.message}`, 'error');
     }
     return Promise.reject(error.message);   // 返回接口返回的错误信息
   });
