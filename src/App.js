@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Link, Switch, Route } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
 
@@ -17,16 +18,29 @@ const SubMenu = Menu.SubMenu;
 const Item = Menu.Item;
 
 class App extends Component {
+  static propTypes = {
+    location: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired,
+  }
   constructor(props) {
     super(props);
     this.state = {
       collapsed: false,
-      selectedKey: '/app'
+      selectedKey: '/app',
+      openKey: ''
     };
   }
 
   componentDidMount() {
     this.setState({ selectedKey: this.props.location.pathname });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.location.pathname.indexOf('/app/newFeatures') > -1) {
+      this.setState({ selectedKey: nextProps.location.pathname, openKey: 'react-new-features' });
+    } else {
+      this.setState({ selectedKey: nextProps.location.pathname, openKey: '' });
+    }
   }
 
   onCollapse = (collapsed) => this.setState({ collapsed });
@@ -50,6 +64,7 @@ class App extends Component {
           <Menu
             theme="dark"
             selectedKeys={[this.state.selectedKey]}
+            openKeys={[this.state.openKey]}
             mode="inline"
             onClick={this.menuClick}
           >
@@ -62,12 +77,16 @@ class App extends Component {
             <SubMenu
               key="react-new-features"
               title={<span><Icon type="desktop" /><span>React16 新特性</span></span>}
+              onTitleClick={() => { this.state.openKey === 'react-new-features' ? this.setState({ openKey: '' }) : this.setState({ openKey: 'react-new-features' }); }}
             >
               <Item key={`${match.url}/newFeatures/render`}>
                 <Link to={`${match.url}/newFeatures/render`}>render</Link>
               </Item>
               <Item key={`${match.url}/newFeatures/fragment`}>
                 <Link to={`${match.url}/newFeatures/fragment`}>Fragment</Link>
+              </Item>
+              <Item key={`${match.url}/newFeatures/newLifeCircle`}>
+                <Link to={`${match.url}/newFeatures/newLifeCircle`}>newLifeCircle</Link>
               </Item>
             </SubMenu>
           </Menu>

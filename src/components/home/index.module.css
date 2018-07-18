@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.newFeatureContainer {
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px dashed #000000;
+  border-radius: 4px;
+}
+.newFeatureContainer button {
+  margin: 0 10px;
+}
+.columnsContainer {
+  display: flex;
+  flex-direction: column;
+}
+.columnsContainer button {
+  margin: 10px 0;
+}
+.columnsCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

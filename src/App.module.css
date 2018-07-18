@@ -18,6 +18,9 @@
 }
 
 .contentContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 16px;
   padding: 10px;
   height: auto;

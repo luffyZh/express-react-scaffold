@@ -8,6 +8,7 @@
     "babel-plugin-import": "^1.7.0",
     "concurrently": "^3.5.1",
     "history": "^4.7.2",
+    "prop-types": "^15.6.2",
     "react": "^16.3.2",
     "react-app-rewire-less": "^2.1.1",
     "react-app-rewired": "^1.5.2",
@@ -31,6 +32,13 @@
   },
   "proxy": "http://127.0.0.1:3003",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.1.0",
+    "eslint-plugin-react": "^7.10.0",
     "node-sass": "^4.9.0",
     "react-app-rewire-css-modules": "codebandits/react-app-rewire-css-modules",
     "sass-loader": "^7.0.1"
