@@ -51,18 +51,26 @@ class App extends Component {
     });
   };
 
+  toggleMenu = () => {
+    this.setState({
+      collapsed: !this.state.collapsed,
+    });
+  }
+
   render() {
     const { match } = this.props;
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider
+          trigger={null}
           collapsible
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
+          style={{ background: '#fff' }}
         >
           <div className="logo" />
           <Menu
-            theme="dark"
+            theme="light"
             selectedKeys={[this.state.selectedKey]}
             openKeys={[this.state.openKey]}
             mode="inline"
@@ -98,7 +106,13 @@ class App extends Component {
           </Menu>
         </Sider>
         <Layout>
-          <Header style={{ background: '#fff', padding: 0, height: '46px' }} />
+          <Header className={styles.headerStyle}>
+            <Icon
+              className={styles.trigger}
+              type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+              onClick={this.toggleMenu}
+            />
+          </Header>
           <Content className={styles.contentContainer}>
             <Switch>
               <Route exact path={'/app'} component={MainPage} />

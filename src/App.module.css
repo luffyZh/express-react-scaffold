@@ -27,3 +27,26 @@
   min-height: 400px;
   background: #fff;
 }
+
+.headerStyle {
+  background-color: #00BFFF;
+  height: 64px;
+}
+
+.trigger {
+  font-size: 24px;
+  line-height: 64px;
+  cursor: pointer;
+  transition: color .3s;
+  color: #fff
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.logo {
+  height: 32px;
+  background: rgba(255,255,255,.2);
+  margin: 16px;
+}
