@@ -35,7 +35,7 @@ class App extends Component {
     this.setState({ selectedKey: this.props.location.pathname });
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.location.pathname.indexOf('/app/newFeatures') > -1) {
       this.setState({ selectedKey: nextProps.location.pathname, openKey: 'react-new-features' });
     } else {
@@ -85,8 +85,14 @@ class App extends Component {
               <Item key={`${match.url}/newFeatures/fragment`}>
                 <Link to={`${match.url}/newFeatures/fragment`}>Fragment</Link>
               </Item>
+              <Item key={`${match.url}/newFeatures/portals`}>
+                <Link to={`${match.url}/newFeatures/portals`}>Portals</Link>
+              </Item>
+              <Item key={`${match.url}/newFeatures/errorBoundary`}>
+                <Link to={`${match.url}/newFeatures/errorBoundary`}>ErrorBoundary</Link>
+              </Item>
               <Item key={`${match.url}/newFeatures/newLifeCircle`}>
-                <Link to={`${match.url}/newFeatures/newLifeCircle`}>newLifeCircle</Link>
+                <Link to={`${match.url}/newFeatures/newLifeCircle`}>NewLifeCircle</Link>
               </Item>
             </SubMenu>
           </Menu>

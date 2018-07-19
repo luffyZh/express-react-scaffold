@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class BeforeComp extends Component {
@@ -12,7 +12,7 @@ class BeforeComp extends Component {
     this.state = { flag };
   }
   
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.flag !== this.props.flag) {
       this.setState({ flag: nextProps.flag }, () => {
         if (nextProps.flag) {
@@ -28,7 +28,9 @@ class BeforeComp extends Component {
 
   render() {
     return (
-      `flag:${this.state.flag}`
+      <div style={{ padding: '5px 10px', border: '1px solid orange', margin: '4px 0' }}>
+        flag:{this.state.flag.toString()}
+      </div>
     );
   }
 }

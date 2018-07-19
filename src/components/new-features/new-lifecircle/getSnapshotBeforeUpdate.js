@@ -32,10 +32,6 @@ class GSBUComp extends Component {
     }
   }
 
-  addElement = () => {
-    this.domRef.appendChild(<div style={{ border: '1px solid #000', margin: '5px 0', height: '10px' }} />);
-  }
-
   render() {
     return (
       <div>

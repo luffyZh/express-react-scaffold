@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class AfterComp extends Component {
@@ -23,8 +23,16 @@ class AfterComp extends Component {
   }
   
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.flag !== this.props.flag) {
+    if (prevState.flag !== this.props.flag && this.props.flag) {
+      /**
+       * 从这里可以看出来，其实组件更新完也就是dom已经渲染好是发生在componentDidUpdate
+       * 这个生命周期之后的，因为在这个里面进行alert发现dom内容并没有发生变化
+       */
+      console.log(document.getElementById('flag').innerText);
       this.doSomeThing();
+      // setTimeout(() => {
+      //   this.doSomeThing();
+      // }, 0);
     }
   }
 
@@ -34,7 +42,9 @@ class AfterComp extends Component {
 
   render() {
     return (
-      `flag:${this.state.flag}`
+      <div id='flag' style={{ padding: '5px 10px', border: '1px solid orange', margin: '4px 0' }}>
+        flag:{this.state.flag.toString()}
+      </div>
     );
   }
 }

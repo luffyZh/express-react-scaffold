@@ -25,7 +25,7 @@ class NewLifeCircle extends Component {
           <BeforeComp flag={this.state.beforeFlag} />
         </div>
         <div className={s.newLifeContainer}>
-          <h4>getDrivedStateFromProps + componentDidUpdate</h4>
+          <h5>getDrivedStateFromProps + componentDidUpdate</h5>
           <Button onClick={() => this.setState({ afterFlag: !this.state.afterFlag })} type="primary" ghost>改变flag</Button>
           <AfterComp flag={this.state.afterFlag} />
         </div>
