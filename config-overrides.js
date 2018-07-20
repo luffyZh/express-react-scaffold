@@ -8,9 +8,9 @@ module.exports = function override(config, env) {
    config = rewireCssModules(config, env);
    config = rewireLess.withLoaderOptions({
      modifyVars: {
-       "@primary-color": "#00BFFF",
-       "@input-height-base": "40px",
-       "@btn-height-base": "40px",
+       '@primary-color': '#00BFFF',
+       '@input-height-base': '40px',
+       '@btn-height-base': '40px',
      },
    })(config, env);
   return config;

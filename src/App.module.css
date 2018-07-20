@@ -17,24 +17,32 @@
   margin: 10px 20px;
 }
 
+.headerStyle {
+  display: flex;
+  background-color: #00BFFF;
+  height: 64px;
+  align-items: center;
+}
+
+.headerTitle {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+}
+
 .contentContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 16px;
   padding: 10px;
   height: auto;
   min-height: 400px;
   background: #fff;
 }
 
-.headerStyle {
-  background-color: #00BFFF;
-  height: 64px;
-}
-
 .trigger {
-  font-size: 24px;
+  font-size: 26px;
   line-height: 64px;
   cursor: pointer;
   transition: color .3s;
@@ -49,4 +57,9 @@
   height: 32px;
   background: rgba(255,255,255,.2);
   margin: 16px;
+}
+
+.menuHeader {
+  background-color: #00BFFF;
+  height: 64px;
 }

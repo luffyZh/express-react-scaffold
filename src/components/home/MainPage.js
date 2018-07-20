@@ -18,7 +18,7 @@ const MainPage = () => (
         <span>V16.0</span>
         <Link to='/app/newFeatures/render'><Button type="primary" ghost>Render</Button></Link>
         <Link to='/app/newFeatures/fragment'><Button type="danger" ghost>Fragment</Button></Link>
-        <Link to='/app/newFeatures/portals'><Button type="primary" ghost>Protals</Button></Link>
+        <Link to='/app/newFeatures/portals'><Button type="primary" ghost>Portals</Button></Link>
         <Link to='/app/newFeatures/errorBoundary'><Button type="danger">ErrorBoundary</Button></Link>
         <span>V16.3</span>
         <Link to='/app/newFeatures/newLifeCircle'><Button type="primary">NewLifeCircle</Button></Link>

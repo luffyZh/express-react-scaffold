@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link, Switch, Route } from 'react-router-dom';
 import { Layout, Menu, Icon } from 'antd';
-
+import { HeaderMenu } from './constants/MenuTypes';
 import MainPage from './components/home/MainPage';
 import UserList from './containers/User/UserList';
 // 新特性
@@ -58,7 +58,8 @@ class App extends Component {
   }
 
   render() {
-    const { match } = this.props;
+    const { match, location } = this.props;
+    console.log(this.props);
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider
@@ -76,6 +77,7 @@ class App extends Component {
             mode="inline"
             onClick={this.menuClick}
           >
+            <Item key={'null'} style={{ margin: '0', padding: '0', height: '64px', textAlign: 'center', lineHeight: '64px', backgroundColor: '#00BFFF', cursor: 'default' }} disabled/>
             <Item key={`${match.url}`}>
               <Link to={`${match.url}`}><Icon type="home" /><span>首页</span></Link>
             </Item>
@@ -112,6 +114,7 @@ class App extends Component {
               type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
               onClick={this.toggleMenu}
             />
+            <div className={styles.headerTitle}><span style={{ marginLeft: '-25px' }}>{HeaderMenu[location.pathname]}</span></div>
           </Header>
           <Content className={styles.contentContainer}>
             <Switch>

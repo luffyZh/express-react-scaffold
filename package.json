@@ -25,7 +25,7 @@
   "scripts": {
     "react-start": "react-app-rewired start",
     "react-build": "react-app-rewired build",
-    "start": "concurrently \"react-app-rewired start\" \"cd server && yarn start\"",
+    "start": "concurrently \"set PORT=8888 && react-app-rewired start\" \"cd server && yarn start\"",
     "build": "concurrently \"react-app-rewired build\" \"cd server && yarn build\"",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
