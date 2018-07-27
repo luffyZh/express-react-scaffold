@@ -47,6 +47,7 @@ axios.interceptors.response.use(
     } else {
       swal('Error', `${error.message}`, 'error');
     }
+    /* eslint-disable  */
     return Promise.reject(error.message);   // 返回接口返回的错误信息
   });
 

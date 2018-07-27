@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Form, Icon, Input, Button, Checkbox, Card, Spin } from 'antd';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
@@ -7,6 +8,12 @@ import styles from './form.module.css';
 const FormItem = Form.Item;
 
 class NormalLoginForm extends Component {
+  static propTypes = {
+    form: PropTypes.any,
+    history: PropTypes.any,
+    userLogin: PropTypes.func.isRequired,
+    resetLoginStatus: PropTypes.func.isRequired
+  }
   constructor(props) {
     super(props);
     this.state = { spinShow: 'none', buttonDisbled: false };
@@ -15,13 +22,13 @@ class NormalLoginForm extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        this.props.postUserLogin(values);
+        this.props.userLogin(values);
         this.setState({ spinShow: 'flex', buttonDisbled: true });
       }
     });
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.loginMsg === 'fail') {
       swal('用户名或密码错误', '', 'error')
         .then(() => {

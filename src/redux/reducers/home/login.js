@@ -8,6 +8,7 @@ import { OperationStatus } from '../../../constants/OperationStatus';
 
 const initialState = {
   loginMsg: '',
+  status: OperationStatus.initial
 };
 
 const login = (state = initialState, { type, payload }) => {
@@ -15,7 +16,7 @@ const login = (state = initialState, { type, payload }) => {
     case USER_LOGIN:
       return {
         ...state,
-        status: OperationStatus.initial
+        status: OperationStatus.loading
       };
     case USER_LOGIN_SUCCESS:
       return {

@@ -1,9 +1,6 @@
 import { connect } from 'react-redux';
 import Register from '../../components/Login/Register';
-import {
-  postUserRegister,
-  resetRegisterStatus,
-} from '../../redux/actions/Home';
+import { USER_REGISTER, RESET_REGISTER_STATUS } from '../../constants/ActionTypes';
 
 const mapStateToProps = state => ({
   registerMsg: state.home.register.registerMsg,
@@ -11,12 +8,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  postUserRegister(postData) {
-    dispatch(postUserRegister(postData));
-  },
-  resetRegisterStatus() {
-    dispatch(resetRegisterStatus());
-  }
+  userRegister: ({ username, password, email }) => (
+    dispatch({ type: USER_REGISTER, username, password, email })
+  ),
+  resetRegisterStatus: () => (
+    dispatch({ type: RESET_REGISTER_STATUS })
+  ),
 });
 
 export default connect(

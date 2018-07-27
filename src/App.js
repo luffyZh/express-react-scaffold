@@ -59,7 +59,6 @@ class App extends Component {
 
   render() {
     const { match, location } = this.props;
-    console.log(this.props);
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider

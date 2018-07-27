@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Form, Icon, Input, Button, Card } from 'antd';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
@@ -7,12 +8,18 @@ import styles from './form.module.css';
 const FormItem = Form.Item;
 
 class NormalRegisterForm extends Component {
+  static propTypes = {
+    form: PropTypes.any,
+    history: PropTypes.any,
+    userRegister: PropTypes.func.isRequired,
+    resetRegisterStatus: PropTypes.func.isRequired,
+  }
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        this.props.postUserRegister(values);
+        this.props.userRegister(values);
       } else {
         if (err.username) {
           swal(`${err.username.errors[0].message}`, '', 'error');
@@ -25,7 +32,7 @@ class NormalRegisterForm extends Component {
     });
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.registerResult) {
       swal('注册成功', '', 'success')
         .then(() => {

@@ -6,6 +6,7 @@
     "antd": "^3.4.4",
     "axios": "^0.18.0",
     "babel-plugin-import": "^1.7.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "concurrently": "^3.5.1",
     "history": "^4.7.2",
     "prop-types": "^15.6.2",
@@ -18,7 +19,7 @@
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0",
+    "redux-saga": "^0.16.0",
     "sweetalert": "^2.1.0",
     "uxcore-empty-data": "^0.1.5"
   },

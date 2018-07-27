@@ -1,17 +1,17 @@
 import { connect } from 'react-redux';
 import UserList from '../../components/UserList';
 import {
-  fetchAllUserList
-} from '../../redux/actions/User';
+  FETCH_ALL_USER_LIST
+} from '../../constants/ActionTypes';
 
 const mapStateToProps = state => ({
   list: state.user.userList.list,
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllUserList() {
-    dispatch(fetchAllUserList());
-  }
+  fetchUserList: () => (
+    dispatch({ type: FETCH_ALL_USER_LIST })
+  ),
 });
 
 export default connect(

@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Table } from 'antd';
 
 class UserList extends Component {
+  static propTypes = {
+    list: PropTypes.array.isRequired,
+    fetchUserList: PropTypes.func.isRequired
+  }
   constructor(props) {
     super(props);
     this.state = { userList: this.props.list };
   }
 
   componentDidMount() {
-    this.props.fetchAllUserList();
+    this.props.fetchUserList();
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({ userList: nextProps.list });
   }
 
@@ -30,9 +35,9 @@ class UserList extends Component {
       key: 'email',
     }];
     return (
-      <div>
+      <div style={{ width: '60%' }}>
         <h1 style={{ textAlign: 'center' }}>用户列表页</h1>
-        <div style={{ width: '50%', margin: '10px auto' }}>
+        <div style={{ width: '100%', margin: '10px auto' }}>
           <Table
             dataSource={this.state.userList}
             columns={columns}

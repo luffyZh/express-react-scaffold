@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import Login from '../../components/Login/Login';
-import { 
-  postUserLogin,
-  resetLoginStatus,
-} from '../../redux/actions/Home';
+import {
+  USER_LOGIN,
+  RESET_LOGIN_STATUS
+} from '../../constants/ActionTypes';
 
 const mapStateToProps = state => ({
   loginMsg: state.home.login.loginMsg,
@@ -11,12 +11,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  postUserLogin(postData) {
-    dispatch(postUserLogin(postData));
-  },
-  resetLoginStatus() {
-    dispatch(resetLoginStatus());
-  }
+  userLogin: ({ username, password }) => (
+    dispatch({ type: USER_LOGIN, username, password })
+  ),
+  resetLoginStatus: () => (
+    dispatch({ type: RESET_LOGIN_STATUS })
+  ),
 });
 
 export default connect(
