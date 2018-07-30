@@ -23,6 +23,23 @@ export function* userLogin() {
     }
   }
 }
+// 接收watchUserLogin传递过来的参数
+// export function* userLogin(action) {
+//   try {
+//     const { data } = yield call(http.post, apiUrl.USER_LOGIN, { username: action.username, password: action.password } );
+//     if (!data.success) {
+//       yield put({ type: USER_LOGIN_FAIL, payload: data });
+//     } else {
+//       yield put({ type: USER_LOGIN_SUCCESS, payload: data });
+//     }
+//   } catch(error) {
+//     yield put({ type: USER_LOGIN_FAIL, payload: error });
+//   }
+// }
+
+// export function* watchUserLogin() {
+//   yield takeEvery(USER_LOGIN, userLogin);
+// }
 
 export function* resetLoginStatus() {
   while(true) {
@@ -32,6 +49,7 @@ export function* resetLoginStatus() {
 
 export default [
   fork(userLogin),
+  // fork(watchUserLogin),
   fork(resetLoginStatus)
 ];
 
