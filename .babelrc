@@ -3,5 +3,12 @@
     "env",
     "react",
     "stage-0"
+  ],
+  "plugins": [
+    ["@babel/plugin-transform-react-jsx", {
+      "pragma": "dom",
+      "pragmaFrag": "DomFrag",
+      "throwIfNamespace": false
+    }]
   ]
 }

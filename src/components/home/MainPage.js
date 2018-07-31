@@ -16,12 +16,15 @@ const MainPage = () => (
       <div className={s.columnsCenter} style={{ margin: '0 10px' }}>{arrowStr}</div>
       <div className={s.columnsContainer}>
         <span>V16.0</span>
-        <Link to='/app/newFeatures/render'><Button type="primary" ghost>Render</Button></Link>
-        <Link to='/app/newFeatures/fragment'><Button type="danger" ghost>Fragment</Button></Link>
+        <Link to='/app/newFeatures/render'><Button type="primary">Render</Button></Link>
         <Link to='/app/newFeatures/portals'><Button type="primary" ghost>Portals</Button></Link>
-        <Link to='/app/newFeatures/errorBoundary'><Button type="danger">ErrorBoundary</Button></Link>
+        <Link to='/app/newFeatures/errorBoundary'><Button type="danger">Error Boundary</Button></Link>
+        <span>V16.2</span>
+        <Link to='/app/newFeatures/fragment'><Button type="primary" ghost>Fragment</Button></Link>
         <span>V16.3</span>
         <Link to='/app/newFeatures/newLifeCircle'><Button type="primary">NewLifeCircle</Button></Link>
+        <span>V16.4</span>
+        <Link to='/app/newFeatures/pointerEvents'><Button type="primary" ghost>Pointer Events</Button></Link>
       </div>
     </div>
   </div>

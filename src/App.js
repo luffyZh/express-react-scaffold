@@ -11,8 +11,6 @@ import NewFeatures from './components/new-features/index';
 /* More detail can see from https://github.com/codebandits/react-app-rewire-css-modules */
 import styles from './App.module.css';
 
-
-
 const { Header, Content, Footer, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 const Item = Menu.Item;
@@ -59,7 +57,6 @@ class App extends Component {
 
   render() {
     const { match, location } = this.props;
-    console.log(this.props);
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider
@@ -103,6 +100,9 @@ class App extends Component {
               </Item>
               <Item key={`${match.url}/newFeatures/newLifeCircle`}>
                 <Link to={`${match.url}/newFeatures/newLifeCircle`}>NewLifeCircle</Link>
+              </Item>
+              <Item key={`${match.url}/newFeatures/pointerEvents`}>
+                <Link to={`${match.url}/newFeatures/pointerEvents`}>PointerEvents</Link>
               </Item>
             </SubMenu>
           </Menu>
