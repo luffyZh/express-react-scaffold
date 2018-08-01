@@ -83,7 +83,7 @@ class App extends Component {
             </Item>
             <SubMenu
               key="react-new-features"
-              title={<span><Icon type="desktop" /><span>React16 新特性</span></span>}
+              title={<span><Icon type="desktop" /><span>React16.0+ 新特性</span></span>}
               onTitleClick={() => { this.state.openKey === 'react-new-features' ? this.setState({ openKey: '' }) : this.setState({ openKey: 'react-new-features' }); }}
             >
               <Item key={`${match.url}/newFeatures/render`}>

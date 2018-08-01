@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Pointable from 'react-pointable';
 
 const CIRCLE_SIZE = 85;
 
@@ -76,7 +77,7 @@ class PointerEvents extends Component {
     };
     return (
       <div style={boxStyle}>
-        <div
+        <Pointable
           style={circleStyle}
           onPointerDown={this.onDown}
           onPointerMove={this.onMove}
