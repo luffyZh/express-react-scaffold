@@ -31,13 +31,17 @@ router.post('/login', (req, res) => {
             },(err, user) => {
                 if (user !== null) {
                     // 用户登录成功过后生成token返给前端
-                  let token = jwt.sign(tokenObj, secretKey, {
-                        expiresIn : 60 * 60 * 24 // 授权时效24小时
-                  });
+                  let token = jwt.sign(
+                    tokenObj,
+                    secretKey,
+                    {
+                      expiresIn : 60 * 60 * 24 // 授权时效24小时
+                    }
+                  );
                   res.json({
-                        success: true,
-                        message: 'success',
-                        token: token
+                    success: true,
+                    message: 'success',
+                    token: token
                   });
                 } else {
                     res.json({ success: false, message: 'fail'});

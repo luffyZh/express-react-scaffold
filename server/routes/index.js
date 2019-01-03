@@ -13,7 +13,6 @@ router.use((req, res, next) => {
   next();
 });
 
-router.use(jwtAuth);
 router.use('/user', user);
 // 处理 404 
 router.use((req, res, next) => {
