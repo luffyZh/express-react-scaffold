@@ -35,7 +35,7 @@ router.post('/login', (req, res) => {
                     tokenObj,
                     secretKey,
                     {
-                      expiresIn : 60 * 60 * 24 // 授权时效24小时
+                      expiresIn : 60 // 授权时效24小时
                     }
                   );
                   res.json({
