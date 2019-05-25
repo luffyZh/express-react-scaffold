@@ -3,7 +3,7 @@ import {
   FETCH_ALL_USER_LIST_SUCCESS,
   FETCH_ALL_USER_LIST_FAIL,
 } from '../../../constants/ActionTypes';
-import { OperationStatus } from '../../../constants/OperationStatus';
+import { OperationStatus } from '../../../constants/ConstTypes';
 
 const initialState = {
   list: []

@@ -4,10 +4,11 @@ import {
   USER_LOGIN_FAIL,
   RESET_LOGIN_STATUS,
 } from '../../../constants/ActionTypes';
-import { OperationStatus } from '../../../constants/OperationStatus';
+import { OperationStatus } from '../../../constants/ConstTypes';
 
 const initialState = {
   loginMsg: '',
+  status: OperationStatus.initial
 };
 
 const login = (state = initialState, { type, payload }) => {

@@ -4,7 +4,7 @@ import {
   USER_REGISTER_FAIL,
   RESET_REGISTER_STATUS
 } from '../../../constants/ActionTypes';
-import { OperationStatus } from '../../../constants/OperationStatus';
+import { OperationStatus } from '../../../constants/ConstTypes';
 
 const initialState = {
   registerMsg: '',
@@ -20,15 +20,15 @@ const register = (state = initialState, { type, payload }) => {
     case USER_REGISTER_SUCCESS:
       return {
         ...state,
-        registerMsg: payload.msg,
-        registerResult: payload.result,
+        registerMsg: payload.message,
+        registerResult: payload.success,
         status: OperationStatus.load_success,
       };
     case USER_REGISTER_FAIL:
       return {
         ...state,
-        registerMsg: payload.msg,
-        registerResult: payload.result,
+        registerMsg: payload.message,
+        registerResult: payload.success,
         status: OperationStatus.load_fail,
       };
     case RESET_REGISTER_STATUS:

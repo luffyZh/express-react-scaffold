@@ -24,14 +24,15 @@ router.use((req, res, next) => {
 router.use((err, req, res, next) => {
   if (err.name === "UnauthorizedError") {
     res.status(401).json({
+      code: 401,
       message: 'invalid token',
-      error: err
+      data: err
     });
   } else {
-    res.status(err.status || 500);
-    res.json({
+    res.status(err.status || 500).json({
+      code: err.status || 500,
       message: err.message,
-      error: err
+      data: err
     });
   }
 });

@@ -19,8 +19,9 @@ const userRegisterSuccess = (payload) => ({
   type: USER_REGISTER_SUCCESS,
   payload
 });
-const userRegisterFail = () => ({
-  type: USER_REGISTER_FAIL
+const userRegisterFail = (payload) => ({
+  type: USER_REGISTER_FAIL,
+  payload,
 });
 export const resetRegisterStatus = () => ({
   type: RESET_REGISTER_STATUS
@@ -32,8 +33,7 @@ export const postUserRegister = (postData) => (dispatch, getState) => {
             return dispatch(userRegisterSuccess(res.data));
           })
           .catch((error) => {
-            console.log(error);
-            dispatch(userRegisterFail());
+            dispatch(userRegisterFail(error));
           }); 
 };
 // 用户登陆
@@ -44,8 +44,9 @@ const userLoginSuccess = (payload) => ({
   type: USER_LOGIN_SUCCESS,
   payload
 });
-const userLoginFail = () => ({
-  type: USER_LOGIN_FAIL
+const userLoginFail = (payload) => ({
+  type: USER_LOGIN_FAIL,
+  payload
 });
 export const resetLoginStatus = () => ({
   type: RESET_LOGIN_STATUS
@@ -54,11 +55,14 @@ export const postUserLogin = (postData) => (dispatch, getState) => {
   dispatch(userLogin());
   return http.post('/user/login', postData)
           .then(res => {
+            if (res.code !== 0) {
+              return dispatch(userLoginFail(res));
+            }
             return dispatch(userLoginSuccess(res.data));
           })
           .catch((error) => {
             console.log(error);
-            dispatch(userLoginFail());
+            dispatch(userLoginFail(error));
           }); 
 };
 

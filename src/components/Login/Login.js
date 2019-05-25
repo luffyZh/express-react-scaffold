@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Icon, Input, Button, Checkbox, Card, Spin } from 'antd';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
+import { OperationStatus } from '../../constants/ConstTypes';
 import styles from './form.module.css';
 
 const FormItem = Form.Item;
@@ -22,14 +23,14 @@ class NormalLoginForm extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.loginMsg === 'fail') {
+    if (nextProps.status === OperationStatus.load_fail) {
       swal('用户名或密码错误', '', 'error')
         .then(() => {
           this.props.resetLoginStatus();
           this.setState({ spinShow: 'none', buttonDisbled: false });
         });
     }
-    if (nextProps.loginMsg === 'success') {
+    if (nextProps.status === OperationStatus.load_success) {
       setTimeout(() => {
         this.props.history.push('/');
       }, 1000);

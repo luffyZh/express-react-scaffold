@@ -26,17 +26,18 @@ axios.interceptors.request.use(request => {
 // 拦截响应，遇到token不合法则报错
 axios.interceptors.response.use(
   response => {
-    if (response.data.token) {
-      console.log('token:', response.data.token);
+    const res = response.data;
+    if (res.data.token) {
+      console.log('token:', res.data.token);
       window.localStorage.setItem('luffy_jwt_token', response.data.token);
     }
-    return response;
+    return res;
   },
   error => {
-    const errRes = error.response;
-    if (errRes.status === 401) {
+    const errRes = error.response.data;
+    if (error.response.status === 401) {
       window.localStorage.removeItem('luffy_jwt_token');
-      swal('Auth Error!', `${errRes.data.error.message}, please login!`, 'error')
+      swal('Auth Error!', `${errRes.message}, please login!`, 'error')
       .then(() => {
         history.push('/login');
         setTimeout(() => {
@@ -44,7 +45,7 @@ axios.interceptors.response.use(
         }, 0);
       });
     }
-    return Promise.reject(error.message);   // 返回接口返回的错误信息
+    return Promise.reject(errRes);   // 返回接口返回的错误信息
   });
 
 export default class http {
