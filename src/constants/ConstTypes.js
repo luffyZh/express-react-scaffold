@@ -7,5 +7,5 @@ export const OperationStatus = {
   editing: 'editing',
   saving: 'saving',
   save_success: 'save_success',
-  save_fail: 'save_fail',
+  save_fail: 'save_fail'
 };

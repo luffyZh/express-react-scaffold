@@ -2,7 +2,7 @@ import {
   USER_LOGIN,
   USER_LOGIN_SUCCESS,
   USER_LOGIN_FAIL,
-  RESET_LOGIN_STATUS,
+  RESET_LOGIN_STATUS
 } from '../../../constants/ActionTypes';
 import { OperationStatus } from '../../../constants/ConstTypes';
 
@@ -22,16 +22,16 @@ const login = (state = initialState, { type, payload }) => {
       return {
         ...state,
         loginMsg: payload.message,
-        status: OperationStatus.load_success,
+        status: OperationStatus.load_success
       };
     case USER_LOGIN_FAIL:
       return {
         ...state,
         loginMsg: payload.message,
-        status: OperationStatus.load_fail,
+        status: OperationStatus.load_fail
       };
-    case RESET_LOGIN_STATUS: 
-     return initialState;
+    case RESET_LOGIN_STATUS:
+      return initialState;
     default:
       return state;
   }

@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-const mongoose = require('./db/config/mongoose');// 连接mongodb数据库
+const mongoose = require('./db/config/mongoose'); // 连接mongodb数据库
 const router = require('./routes/index.js');
 
 const app = express();
@@ -15,7 +15,7 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
- //app.use('/',express.static(path.join(__dirname,"..",'build')));
+//app.use('/',express.static(path.join(__dirname,"..",'build')));
 // app.use('/',express.static(path.join(__dirname,"..",'static')));
 
 // 所有的路由会加上“／api”前缀

@@ -11,7 +11,9 @@ class App extends Component {
       <div className={styles.App}>
         <header className={styles.AppHeader} />
         <h1 className={styles.AppTitle}>Express-JWT-Auth</h1>
-        <Link to='/userList'><Button type='primary'>用户列表</Button></Link>
+        <Link to="/userList">
+          <Button type="primary">用户列表</Button>
+        </Link>
       </div>
     );
   }

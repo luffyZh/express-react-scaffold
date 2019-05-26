@@ -10,10 +10,9 @@ function configure(initialState) {
     ? window.devToolsExtension()(createStore)
     : createStore;
 
-  const createStoreWithMiddleware = applyMiddleware(
-    thunkMiddleware,
-    logger,
-  )(create);
+  const createStoreWithMiddleware = applyMiddleware(thunkMiddleware, logger)(
+    create
+  );
 
   const store = createStoreWithMiddleware(rootReducer, initialState);
 

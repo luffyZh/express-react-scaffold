@@ -18,12 +18,12 @@ class RootRouter extends Component {
       <Provider store={store}>
         <Router history={history}>
           <Switch>
-            <Route exact path='/' component={App} />
-            <Route path='/userList' component={UserList} /> 
-            <Route path='/login' component={LoginForm} />
-            <Route path='/register' component={RegisterForm} />
-            <Route path='/notFound' component={NotFound} />
-            <Redirect from='' to="/notFound" />
+            <Route exact path="/" component={App} />
+            <Route path="/userList" component={UserList} />
+            <Route path="/login" component={LoginForm} />
+            <Route path="/register" component={RegisterForm} />
+            <Route path="/notFound" component={NotFound} />
+            <Redirect from="" to="/notFound" />
           </Switch>
         </Router>
       </Provider>

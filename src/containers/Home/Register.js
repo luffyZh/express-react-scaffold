@@ -2,12 +2,12 @@ import { connect } from 'react-redux';
 import Register from '../../components/Login/Register';
 import {
   postUserRegister,
-  resetRegisterStatus,
+  resetRegisterStatus
 } from '../../redux/actions/Home';
 
 const mapStateToProps = state => ({
   registerMsg: state.home.register.registerMsg,
-  registerResult: state.home.register.registerResult,
+  registerResult: state.home.register.registerResult
 });
 
 const mapDispatchToProps = dispatch => ({

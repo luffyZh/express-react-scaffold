@@ -1,13 +1,10 @@
 import { connect } from 'react-redux';
 import Login from '../../components/Login/Login';
-import { 
-  postUserLogin,
-  resetLoginStatus,
-} from '../../redux/actions/Home';
+import { postUserLogin, resetLoginStatus } from '../../redux/actions/Home';
 
 const mapStateToProps = state => ({
   loginMsg: state.home.login.loginMsg,
-  status: state.home.login.status,
+  status: state.home.login.status
 });
 
 const mapDispatchToProps = dispatch => ({

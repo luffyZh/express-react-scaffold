@@ -7,7 +7,7 @@ import {
 import { OperationStatus } from '../../../constants/ConstTypes';
 
 const initialState = {
-  registerMsg: '',
+  registerMsg: ''
 };
 
 const register = (state = initialState, { type, payload }) => {
@@ -22,14 +22,14 @@ const register = (state = initialState, { type, payload }) => {
         ...state,
         registerMsg: payload.message,
         registerResult: payload.success,
-        status: OperationStatus.load_success,
+        status: OperationStatus.load_success
       };
     case USER_REGISTER_FAIL:
       return {
         ...state,
         registerMsg: payload.message,
         registerResult: payload.success,
-        status: OperationStatus.load_fail,
+        status: OperationStatus.load_fail
       };
     case RESET_REGISTER_STATUS:
       return initialState;

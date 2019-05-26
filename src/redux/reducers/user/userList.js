@@ -1,7 +1,7 @@
 import {
   FETCH_ALL_USER_LIST,
   FETCH_ALL_USER_LIST_SUCCESS,
-  FETCH_ALL_USER_LIST_FAIL,
+  FETCH_ALL_USER_LIST_FAIL
 } from '../../../constants/ActionTypes';
 import { OperationStatus } from '../../../constants/ConstTypes';
 
@@ -20,12 +20,12 @@ const userList = (state = initialState, { type, payload }) => {
       return {
         ...state,
         list: payload,
-        status: OperationStatus.load_success,
+        status: OperationStatus.load_success
       };
     case FETCH_ALL_USER_LIST_FAIL:
       return {
         ...state,
-        status: OperationStatus.load_fail,
+        status: OperationStatus.load_fail
       };
     default:
       return state;

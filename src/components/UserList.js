@@ -16,19 +16,22 @@ class UserList extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.state.userList !== nextState.userList; 
+    return this.state.userList !== nextState.userList;
   }
 
   render() {
-    const columns = [{
-      title: '姓名',
-      dataIndex: 'username',
-      key: 'username',
-    }, {
-      title: '邮箱',
-      dataIndex: 'email',
-      key: 'email',
-    }];
+    const columns = [
+      {
+        title: '姓名',
+        dataIndex: 'username',
+        key: 'username'
+      },
+      {
+        title: '邮箱',
+        dataIndex: 'email',
+        key: 'email'
+      }
+    ];
     return (
       <div>
         <h1 style={{ textAlign: 'center' }}>用户列表页</h1>

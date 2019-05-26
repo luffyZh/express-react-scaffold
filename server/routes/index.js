@@ -14,7 +14,7 @@ router.use((req, res, next) => {
 });
 
 router.use('/user', user);
-// 处理 404 
+// 处理 404
 router.use((req, res, next) => {
   var err = new Error('Not Found');
   err.status = 404;
@@ -22,7 +22,7 @@ router.use((req, res, next) => {
 });
 // 处理5错误
 router.use((err, req, res, next) => {
-  if (err.name === "UnauthorizedError") {
+  if (err.name === 'UnauthorizedError') {
     res.status(401).json({
       code: 401,
       message: 'invalid token',
