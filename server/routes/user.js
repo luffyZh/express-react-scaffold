@@ -21,10 +21,28 @@ router.get('/list', (req, res) => {
 // 用户登录接口
 router.post(
   '/login',
-  [oneOf([body('username').isString(), body('password').isArray()])],
+  [
+    [
+      body('username')
+        .isString()
+        .withMessage('username类型不正确'),
+      body('password')
+        .isString()
+        .withMessage('password类型不正确')
+    ]
+  ],
   (req, res) => {
     const errors = validationResult(req);
-    console.log(errors, errors.isEmpty(), errors.array());
+    if (!errors.isEmpty()) {
+      return res.status(422).json({
+        code: 422,
+        message: '字段名称不合法',
+        data: {
+          success: false,
+          error: errors.array()
+        }
+      });
+    }
     const tokenObj = {
       username: req.body.username
     };
