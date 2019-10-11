@@ -29,7 +29,7 @@ axios.interceptors.response.use(
     const res = response.data;
     if (res.data.token) {
       console.log('token:', res.data.token);
-      window.localStorage.setItem('luffy_jwt_token', response.data.token);
+      window.localStorage.setItem('luffy_jwt_token', res.data.token);
     }
     return res;
   },
